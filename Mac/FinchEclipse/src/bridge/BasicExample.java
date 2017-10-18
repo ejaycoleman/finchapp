@@ -24,7 +24,7 @@ public class BasicExample implements IOCallback {
 
 	public BasicExample() throws Exception {
 		socket = new SocketIO();
-		socket.connect("http://127.0.0.1:3000/", this);
+		socket.connect("http://localhost:3000/", this);
 
 		// Sends a string to the server.
 		socket.send("Hello Server");
