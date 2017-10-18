@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/finch.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jnaerator-0.9.5.jar"/>
 	<classpathentry kind="src" path="src">
 		<attributes>
@@ -8,6 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Volumes/Secondary HD/finchapp/Mac/socket.io-java-client/jar/socketio.jar"/>
+	<classpathentry kind="lib" path="/Volumes/Secondary HD/finchapp/Mac/FinchEclipse/lib/finch.jar"/>
+	<classpathentry kind="lib" path="/Volumes/Secondary HD/finchapp/Mac/socketio.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
