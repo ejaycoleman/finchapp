@@ -8,5 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Volumes/Secondary HD/finchapp/Mac/socket.io-java-client/jar/socketio.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
