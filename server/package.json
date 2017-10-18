@@ -1,0 +1,9 @@
+{
+  "name": "finch-button-listener",
+  "version": "0.0.1",
+  "description": "socket server to bridge app and finch",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.0.3"
+  }
+}
