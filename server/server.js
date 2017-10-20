@@ -9,6 +9,24 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
+
+  socket.on('left-arrow', function() {
+  	socket.emit('move-left');
+  });
+
+  socket.on('right-arrow', function() {
+  	socket.emit('move-right');
+  });
+
+  socket.on('forward-arrow', function() {
+  	socket.emit('move-forward');
+  });
+
+  socket.on('backward-arrow', function() {
+  	socket.emit('move-backwards');
+  });
+
+
 });
 
 http.listen(3000, function(){
