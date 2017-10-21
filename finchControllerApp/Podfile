@@ -2,5 +2,5 @@ platform :ios, '10.0'
 
 target 'finchControllerApp' do
     use_frameworks!
-    pod 'BlueSocket'
+    pod 'Socket.IO-Client-Swift', '~> 12.1.2'
 end

@@ -27,7 +27,7 @@ public class controller  {
 		
 			  @Override
 			  public void call(Object... args) {
-			    socket.emit("foo");
+			    //socket.emit("foo");
 			    //socket.disconnect();
 			  }
 		
@@ -41,6 +41,14 @@ public class controller  {
 				  controller.finchCode();
 			  }
 		
+			}).on("move-left", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+					  System.out.println("received!");
+					  controller.differentColour();
+				  }
+			
 			}).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
 		
 			  @Override
@@ -59,5 +67,10 @@ public class controller  {
 	      myFinch.sleep(5000);
 	      // Always end your program with finch.quit()
 	      //myFinch.quit();
+	}
+	
+	public static void differentColour() {
+		myFinch.setLED(255, 255, 0);
+		myFinch.sleep(5000);
 	}
 }

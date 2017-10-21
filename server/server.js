@@ -13,7 +13,7 @@ io.on('connection', function(socket){
   });
 
   socket.on('left-arrow', function() {
-  	socket.emit('move-left');
+  	io.emit('move-left');
   });
 
   socket.on('right-arrow', function() {

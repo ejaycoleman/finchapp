@@ -7,57 +7,45 @@
 //
 
 import UIKit
-import Socket
+import SocketIO
 
 
 
 class ViewController: UIViewController {
+    
+    let socket = SocketIOClient(socketURL: URL(string: "http://localhost:3000")!, config: [.log(true), .compress])
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var inputStream: InputStream!
-        var outputStream: OutputStream!
         
-        /*var host :NSHost = NSHost(address: addr)
-        var inp :NSInputStream?
-        var out :NSOutputStream?*/
         
-        //Stream.getStreamsToHost(hostname: addr, port: port, inputStream: , outputStream: , )
+        socket.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+        }
         
-        var readStream: Unmanaged<CFReadStream>?
-        var writeStream: Unmanaged<CFWriteStream>?
-        
-        // 2
-        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault,
-                                           "localhost" as CFString,
-                                           2004,
-                                           &readStream,
-                                           &writeStream)
-        
-        inputStream = readStream!.takeRetainedValue()
-        outputStream = writeStream!.takeRetainedValue()
-        inputStream.schedule(in: .current, forMode: .commonModes)
-        outputStream.schedule(in: .current, forMode: .commonModes)
-        inputStream.open()
-        outputStream.open()
-        /*let inputStream = inp!
-        let outputStream = out!
-        inputStream.open()
-        outputStream.open()
-        
-        var readByte :UInt8 = 0
-        while inputStream.hasBytesAvailable {
-            inputStream.read(&readByte, maxLength: 1)
+        /*socket.on("currentAmount") {data, ack in
+            if let cur = data[0] as? Double {
+                socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
+                    socket.emit("update", ["amount": cur + 2.50])
+                }
+                
+                ack.with("Got your currentAmount", "dude")
+            }
         }*/
         
-        // buffer is a UInt8 array containing bytes of the string "Jonathan Yaniv.".
-        //outputStream.write(&buffer, maxLength: buffer.count)
-
+        
+        
+        socket.connect()
         
     }
-
+    
+    @IBAction func leftButtonWasPressed(_ sender: UIButton) {
+        socket.emit("left-arrow")
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "694115C996248FBA89A047D842B66326"
-               BuildableName = "Pods_finchControllerApp.framework"
-               BlueprintName = "Pods-finchControllerApp"
+               BlueprintIdentifier = "836074FE017F50168B4EEC9C988B69D1"
+               BuildableName = "SocketIO.framework"
+               BlueprintName = "Socket.IO-Client-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "694115C996248FBA89A047D842B66326"
-            BuildableName = "Pods_finchControllerApp.framework"
-            BlueprintName = "Pods-finchControllerApp"
+            BlueprintIdentifier = "836074FE017F50168B4EEC9C988B69D1"
+            BuildableName = "SocketIO.framework"
+            BlueprintName = "Socket.IO-Client-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
