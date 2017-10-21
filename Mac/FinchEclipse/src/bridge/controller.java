@@ -3,50 +3,61 @@ import edu.cmu.ri.createlab.terk.robot.finch.Finch;
 
 
 
-public class controller  {
+import java.net.URISyntaxException;
 
+import io.socket.client.IO;
+import io.socket.client.Socket;
+import io.socket.emitter.Emitter;
+
+
+
+
+public class controller  {
 	
+	static Finch myFinch = new Finch();
 	
-	public static void main(final String[] args)
+	public static void main(final String[] args) throws URISyntaxException
 	   {
 		
+			
 		
 		
+			Socket socket = IO.socket("http://localhost:3000");
+			socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
 		
-		/*socket = new SocketIO();
-		socket.connect("http://127.0.0.1:3001/", this);*/
+			  @Override
+			  public void call(Object... args) {
+			    socket.emit("foo");
+			    //socket.disconnect();
+			  }
 		
+			}).on("newuser", new Emitter.Listener() {
+				
+				
 		
+			  @Override
+			  public void call(Object... args) {
+				  System.out.println("received!");
+				  controller.finchCode();
+			  }
 		
+			}).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {
 		
+			  @Override
+			  public void call(Object... args) {}
 		
-		
-			controller.finchCode();
-	      System.exit(0);
-	    }
-	
-	/*public void BasicExample() throws Exception {
-		socket = new SocketIO();
-		socket.connect("http://127.0.0.1:3001/", this);
-
-		// Sends a string to the server.
-		socket.send("Hello Server");
-
-		// Sends a JSON object to the server.
-		socket.send(new JSONObject().put("key", "value").put("key2",
-				"another value"));
-
-		// Emits an event to the server.
-		socket.emit("event", "argument1", "argument2", 13.37);
-	}*/
+			});
+			socket.connect();
+			
+	   }
 	
 	public static void finchCode() {
 		// Instantiating the Finch object
-	      Finch myFinch = new Finch();
+	      //Finch myFinch = new Finch();
 
 	      myFinch.setLED(0, 255, 255);
 	      myFinch.sleep(5000);
 	      // Always end your program with finch.quit()
-	      myFinch.quit();
+	      //myFinch.quit();
 	}
 }
