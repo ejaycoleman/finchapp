@@ -31,22 +31,78 @@ public class controller  {
 			    //socket.disconnect();
 			  }
 		
-			}).on("newuser", new Emitter.Listener() {
-				
-				
-		
-			  @Override
-			  public void call(Object... args) {
-				  System.out.println("received!");
-				  controller.finchCode();
-			  }
-		
 			}).on("move-left", new Emitter.Listener() {
 				
 				  @Override
 				  public void call(Object... args) {
-					  System.out.println("received!");
-					  controller.differentColour();
+					  
+					  myFinch.setWheelVelocities(-100,100);
+
+				  }
+			
+			}).on("stop-move-left", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+					  
+					  System.out.println("released");
+					  
+					  myFinch.setWheelVelocities(0,0);
+					  
+				  }
+			
+			}).on("move-right", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+					  
+					  myFinch.setWheelVelocities(100,-100);
+					  
+				  }
+			
+			}).on("stop-move-right", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+
+					  myFinch.setWheelVelocities(0,0);
+					  
+				  }
+			
+			}).on("move-forward", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+					  
+					  myFinch.setWheelVelocities(100,100);
+					  
+				  }
+			
+			}).on("stop-move-forward", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+
+					  myFinch.setWheelVelocities(0,0);
+					  
+				  }
+			
+			}).on("move-back", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+
+					  myFinch.setWheelVelocities(-100,-100);
+
+				  }
+			
+			}).on("stop-move-back", new Emitter.Listener() {
+				
+				  @Override
+				  public void call(Object... args) {
+
+					  myFinch.setWheelVelocities(0,0);
+					  
 				  }
 			
 			}).on(Socket.EVENT_DISCONNECT, new Emitter.Listener() {

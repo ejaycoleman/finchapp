@@ -43,7 +43,35 @@ class ViewController: UIViewController {
     
     @IBAction func leftButtonWasPressed(_ sender: UIButton) {
         socket.emit("left-arrow")
-        
+    }
+    
+    @IBAction func leftButtonWasReleased(_ sender: UIButton) {
+        print("released")
+        socket.emit("left-arrow-release")
+    }
+    
+    @IBAction func forwardButtonWasPressed(_ sender: UIButton) {
+        socket.emit("forward-arrow")
+    }
+    
+    @IBAction func forwardButtonWasReleased(_ sender: UIButton) {
+        socket.emit("forward-arrow-release")
+    }
+    
+    @IBAction func rightButtonWasPressed(_ sender: UIButton) {
+        socket.emit("right-arrow")
+    }
+    
+    @IBAction func rightButtonWasReleased(_ sender: UIButton) {
+        socket.emit("right-arrow-release")
+    }
+    
+    @IBAction func backButtonWasPressed(_ sender: UIButton) {
+        socket.emit("backward-arrow")
+    }
+    
+    @IBAction func backButtonWasReleased(_ sender: UIButton) {
+        socket.emit("backward-arrow-release")
     }
     
     override func didReceiveMemoryWarning() {
