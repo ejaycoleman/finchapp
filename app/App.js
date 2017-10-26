@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 
 import SocketIOClient from 'socket.io-client';
 
-this.socket = SocketIOClient('http://192.168.208.184:3000');
+this.socket = SocketIOClient('http://192.168.209.20:3000');
 
 export default class App extends React.Component {
 	forwardPressed() {
@@ -45,16 +45,16 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
 		<TouchableOpacity onPressIn={this.forwardPressed} onPressOut={this.forwardReleased} style={styles.forward}>
-		     <Text>Forward</Text>
+		     <Text style={styles.forwardLabel}>Forward</Text>
 		</TouchableOpacity>
 		<TouchableOpacity onPressIn={this.backPressed} onPressOut={this.backReleased} style={styles.back}>
-		     <Text>Back</Text>
+		     <Text style={styles.backLabel}>Back</Text>
 		</TouchableOpacity>
 		<TouchableOpacity onPressIn={this.leftPressed} onPressOut={this.leftReleased} style={styles.left}>
-		     <Text>Left</Text>
+		     <Text style={styles.leftLabel}>Left</Text>
 		</TouchableOpacity>
 		<TouchableOpacity onPressIn={this.rightPressed} onPressOut={this.rightReleased} style={styles.right}>
-		     <Text>Right</Text>
+		     <Text style={styles.rightLabel}>Right</Text>
 		</TouchableOpacity>
       </View>
     );
@@ -79,5 +79,17 @@ const styles = StyleSheet.create({
   },
   right: {
   	right: 0,
+  },
+  forwardLabel: {
+  	fontSize: 20,
+  },
+  backLabel: {
+  	fontSize: 20,
+  },
+  leftLabel: {
+  	fontSize: 20,
+  },
+  rightLabel: {
+  	fontSize: 20,
   },
 });
